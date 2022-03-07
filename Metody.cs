@@ -54,25 +54,44 @@ namespace Metody9_14
 
                 return obsahujeCislici;
             }
-            public static int PocetSlov(string s, out string upravS)
+        //public static int PocetSlov(string s, out string upravS)
+        //{
+        //    int PocetSlov = 0;
+        //    string[] oddeleno;
+        //    char[] separator = { ' ' };
+        //    oddeleno = s.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+        //    PocetSlov = oddeleno.Length;
+        //    int i = 0;
+        //    while(i < s.Length)
+        //    {
+        //        if (s[i] >= '0' && s[i] <= '9')
+        //        {
+        //            upravS = s.Remove(i, 1);
+        //        }
+        //        else ++i;
+        //    }
+        //    upravS = s;
+        //    return PocetSlov;
+        //}
+
+        public static int PocetSlov(ref string s)
+        {
+            int PocetSlov = 0;
+            string[] oddeleno;
+            char[] separator = { ' ' };
+            oddeleno = s.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            PocetSlov = oddeleno.Length;
+            int i = 0;
+            while (i < s.Length)
             {
-                int PocetSlov = 0;
-                string[] oddeleno;
-                char[] separator = { ' ' };
-                oddeleno = s.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-                PocetSlov = oddeleno.Length;
-                int i = 0;
-                while (i < s.Length)
+                if (s[i] >= '0' && s[i] <= '9')
                 {
-                    if (s[i] >= '0' && s[i] <= '9')
-                    {
-                        upravS = s.Remove(i, 1);
-                    }
-                    else ++i;
+                    s = s.Remove(i, 1);
                 }
-                upravS = s;
-                return PocetSlov;
+                else ++i;
             }
+            return PocetSlov;
         }
+    }
     }
 
